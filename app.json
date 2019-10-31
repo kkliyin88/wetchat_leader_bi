@@ -1,15 +1,15 @@
 {
   "pages": [
-    "pages/main/index",
-    "pages/offLine/index",
-    "pages/electronicBusiness/index",
-    "pages/top/index",
-    "pages/budget/index",
     "pages/login/index",
     "pages/index/index",
+    "pages/main/index",
+    "pages/top/index",
+    "pages/offLine/index",
+    "pages/electronicBusiness/index",
+    "pages/budget/index",
+    "pages/login_old/index",
     "pages/line/index",
-    "pages/pie/index",
-    "pages/logs/logs"
+    "pages/pie/index"
   ],
   "tabBar": {
     "color": "#CCCCCC",

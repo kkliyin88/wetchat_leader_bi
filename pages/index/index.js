@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     motto: 'Hello World',
@@ -15,24 +14,55 @@ Page({
       url: '../logs/logs'
     })
   },
+  
+  getUserMsg:function(){
+	  let token = null;
+	  let token_type=null;
+	  token = wx.getStorageSync('token')
+	  token_type = wx.getStorageSync('token_type')
+	  let temp = 'Bearer' +' '+token;
+	  console.log('temp',temp)
+	 wx.request({
+	 	  url: 'http://oauth-test.pureh2b.com/sso/user/info', //仅为示例，并非真实的接口地址
+	 	  header:{
+	 		 Authorization:temp,
+	 	  },
+	 	  success (res) {
+	 		console.log(res.data)
+	 	  }
+	 }) 
+  },
   getPageData:function(){
+    let token = null;
+	let token_type=null;
+	token = wx.getStorageSync('token')
+	token_type = wx.getStorageSync('token_type')
+     let temp = 'Bearer' +' '+token;
+	 console.log('temp',temp)
 	  wx.request({
-      url: 'http://admin-test.pureh2b.com/behaviorapi/pos/store/getTerminalPerformanceDayReport', //仅为示例，并非真实的接口地址
-	  data: {
-		beginDay: '2019-10-01',
-	    endDay: '2019-10-26'
-	  },
-  // header: {
-  //   'content-type': 'application/json' // 默认值
-  // },
-  success (res) {
-    console.log(res.data)
-  }
-})
+		  url: 'http://admin-test.pureh2b.com/behaviorapi/pos/store/getTerminalPerformanceDayReport', //仅为示例，并非真实的接口地址
+		  header:{
+			 Authorization:temp,
+		  },
+		  data: {
+			beginDay: '2019-10-01',
+			endDay: '2019-10-26'
+		  },
+		  success (res) {
+			console.log(res.data)
+		  }
+	})
   },
   
-  onLoad: function () {
-	this.getPageData();
+  onLoad: function (options) {
+    console.log('options', options)
+	wx.setStorageSync('token',options.access_token)
+	wx.setStorageSync('token_type',options.token_type)
+    this.getUserMsg();
+
+	
+	
+	
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
