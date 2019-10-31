@@ -1,0 +1,15 @@
+<view class="table">
+  <view class='title'>{{title}}</view>
+  <view class="tr header">
+    <view class="th" wx:for="{{columns}}" wx:key="{{key}}" >{{item.title}}</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="{{code}}" wx:for-item="item">
+    <view class="tr" >
+		<!-- <view>{{item}}</view> -->
+		<view>{{Object.keys(item)}}</view>
+    <!--  <view wx:for="{{object.keys(item)}}" wx:for-item="itemName" class="td">{{itemName}}</view> -->
+     <!-- <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view> -->
+    </view>
+  </block>
+</view>

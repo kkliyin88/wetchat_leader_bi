@@ -1,6 +1,5 @@
 import * as echarts from '../../common/ec-canvas/echarts';
 
-const app = getApp();
 
 function initChart(canvas, width, height) {
   const chart = echarts.init(canvas, null, {
@@ -8,7 +7,6 @@ function initChart(canvas, width, height) {
     height: height
   });
   canvas.setChart(chart);
-
   var option = {
     title: {
       text: '测试下面legend的红色区域不应被裁剪',

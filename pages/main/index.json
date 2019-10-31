@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-      "i-button": "/common/iview/button/index",
-      "i-input": "/common/iview/input/index"
+      "radio-group": "/common/iview/radio-group/index",
+      "i-radio": "/common/iview/radio/index",
+	  "ec-canvas": "../../common/ec-canvas/ec-canvas",
+	   "table": "../../components/table/index"
   }
 }
